@@ -1,0 +1,26 @@
+{
+  "name": "abrade",
+  "version": "0.0.1",
+  "description": "scrape all the things",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deadlyicon/abrade.git"
+  },
+  "keywords": [
+    "scrape",
+    "abrade"
+  ],
+  "author": "Jared Grippe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/deadlyicon/abrade/issues"
+  },
+  "homepage": "https://github.com/deadlyicon/abrade#readme",
+  "dependencies": {
+    "superagent": "^3.6.0"
+  }
+}
