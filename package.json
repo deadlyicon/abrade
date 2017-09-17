@@ -20,7 +20,12 @@
     "url": "https://github.com/deadlyicon/abrade/issues"
   },
   "homepage": "https://github.com/deadlyicon/abrade#readme",
+  "bin": {
+    "abrade": "./cli.js"
+  },
   "dependencies": {
-    "superagent": "^3.6.0"
+    "cheerio": "^1.0.0-rc.2",
+    "superagent": "^3.6.0",
+    "superagent-as-promised": "^4.0.0"
   }
 }
