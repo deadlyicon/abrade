@@ -18,19 +18,14 @@ abrade.plugins = []
 abrade.plugin = (name, spec) => {
   abrade.plugins.push(name)
   return abrade[name] = function(...argv){
-    let url = spec.url.replace('$1', argv[0])
+    let url = spec.url.replace('$1', encodeURIComponent(argv[0]))
     return request.get(url).then(response => {
       const $ = cheerio.load(response.text)
-      const entities = $(spec.entity.selector).toArray().map((node) => {
+      const entities = $(spec.entitySelector).toArray().map((node) => {
         node = $(node)
         const entity = {}
-        Object.entries(spec.entity.properties).forEach(([prop, pSpec])=> {
-          const pNode = node.find(pSpec.selector)
-          entity[prop] = (
-            pSpec.attr ? pNode.attr(pSpec.attr) :
-            pNode.text()
-          )
-
+        Object.entries(spec.properties).forEach(([prop, extractor])=> {
+          entity[prop] = extractor(node)
         })
         return entity
       })
